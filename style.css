@@ -108,23 +108,34 @@ input {
     border-radius: 3px;
     width: 200px;
     font-size: 100%;
-    -webkit-appearance: none;
-    appearance: none;
-
 }
 
 input:focus {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #cf8e02;
+    box-shadow: 5px 5px 5px rgb(209, 209, 242);
+    outline: none;
 }
 
 input:invalid {
     border-color: red;
 }
 
-input:not(:placeholder-shown) {
+input:placeholder-shown {
+    border: 1px solid var(--grey-color);
+}
 
+input + span {
+    position: relative;
+}
+
+input + span::before {
+    position: absolute;
+    right: -20px;
+    top: -25px;
+}
+
+input:valid + span::before {
+    content: '✓';
+    color: var(--grey-color);
 }
 
 button {
@@ -149,8 +160,5 @@ button:active {
 .footer {
     padding-top: 40px;
 }
-/* 
-constraints for forms
-pseudo-classes design (invalid)
-*/
+
 
